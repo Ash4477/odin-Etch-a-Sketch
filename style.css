@@ -1,0 +1,19 @@
+*{
+    box-sizing: border-box;
+}
+
+.container div{
+    border: solid 1px black;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.sub-container{
+    display: flex;
+    flex-direction: row;
+}
