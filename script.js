@@ -39,3 +39,19 @@ sizeButton.addEventListener("click", () => {
 
 });
 
+colorButton.addEventListener("click", () => {
+    const color = (prompt("Enter a Color (e.g, orange, red, blue)")).trim();
+    console.log(color);
+    const gridBoxes = document.querySelectorAll(".sub-container > div");
+    gridBoxes.forEach((box) => {
+        box.addEventListener("mouseover", () => {
+            box.style.backgroundColor = color;
+        })
+    });
+});
+
+resetButton.addEventListener("click", () => {
+
+});
+
+
