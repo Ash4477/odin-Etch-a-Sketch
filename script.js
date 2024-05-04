@@ -16,13 +16,22 @@ function removeGrid() {
     container.innerHTML = "";
 }
 
+// Default Settings
 let gridSize = 16;
-
 createGrid(gridSize);
+const gridBoxes = document.querySelectorAll(".sub-container > div");
+gridBoxes.forEach((box) => {
+    box.addEventListener("mouseover", () => {
+        box.style.backgroundColor = "black";
+    })
+});
 
+
+// Adding Functionalities
 const colorButton = document.querySelector("#color");
 const resetButton = document.querySelector("#reset");
 const sizeButton = document.querySelector("#size");
+const showGridButton = document.querySelector("#grid-line-choice");
 
 sizeButton.addEventListener("click", () => {
     while (true){
@@ -54,6 +63,25 @@ resetButton.addEventListener("click", () => {
     gridBoxes.forEach((box) => {
             box.style.backgroundColor = "white";       
     });
+});
+
+showGridButton.addEventListener("click", () => {
+    if (showGridButton.textContent.trim() == "Show Grid") {
+        showGridButton.textContent = "Hide Grid";
+        const gridDivs = document.querySelectorAll(".container div");
+        gridDivs.forEach((div) => {
+            div.classList.add("grid-lines");
+        });
+    }
+
+    else {
+        showGridButton.textContent = "Show Grid";
+        const gridDivs = document.querySelectorAll(".container div");
+        gridDivs.forEach((div) => {
+            div.classList.remove("grid-lines");
+        });
+    }
+ 
 });
 
 

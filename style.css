@@ -13,8 +13,8 @@ body{
     margin-bottom: 10px;
 }
 
-.container div{
-    border: solid 1px red;
+.grid-lines{
+    border: solid 1px black;
 }
 
 .container{
