@@ -5,6 +5,9 @@ function createGrid(gridSize) {
         newSubContainer.classList.add("sub-container");
         for (let j = 0; j< gridSize; j++) {
             const newDiv = document.createElement("div");
+            newDiv.addEventListener("mouseover", () => {
+                newDiv.style.backgroundColor = "black";
+            })
             newSubContainer.appendChild(newDiv);
         }
         container.appendChild(newSubContainer);
@@ -19,12 +22,6 @@ function removeGrid() {
 // Default Settings
 let gridSize = 16;
 createGrid(gridSize);
-const gridBoxes = document.querySelectorAll(".sub-container > div");
-gridBoxes.forEach((box) => {
-    box.addEventListener("mouseover", () => {
-        box.style.backgroundColor = "black";
-    })
-});
 
 
 // Adding Functionalities
