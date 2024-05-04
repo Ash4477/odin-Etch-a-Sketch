@@ -35,6 +35,7 @@ const resetButton = document.querySelector("#reset");
 const sizeButton = document.querySelector("#size");
 const showGridButton = document.querySelector("#grid-line-choice");
 const multiColorButton = document.querySelector("#multicolor");
+const progressiveDarkButton = document.querySelector("#pg-dark");
 
 sizeButton.addEventListener("click", () => {
     while (true){
@@ -46,6 +47,7 @@ sizeButton.addEventListener("click", () => {
             removeGrid();
             createGrid(gridSize);
             showGridButton.textContent = "Show Grid";
+            progressiveDarkButton.textContent = "Progressive Dark Mode: OFF";
             return;            
         }
     }
@@ -89,13 +91,40 @@ showGridButton.addEventListener("click", () => {
 });
 
 multiColorButton.addEventListener("click", () => {
-
     const gridBoxes = document.querySelectorAll(".sub-container > div");
     gridBoxes.forEach((box) => {
         box.addEventListener("mouseover", () => {
             box.style.backgroundColor = `rgb(${generateRandomNumber()},${generateRandomNumber()},${generateRandomNumber()})`;
         })
     });
+});
+
+
+progressiveDarkButton.addEventListener("click", () => {
+    if (progressiveDarkButton.textContent.trim() == "Progressive Dark Mode: OFF") {
+        progressiveDarkButton.textContent = "Progressive Dark Mode: ON";
+        let opacity = 0;
+        const gridBoxes = document.querySelectorAll(".sub-container > div");
+        gridBoxes.forEach((box) => {
+            box.addEventListener("mouseover", () => {
+                opacity += 0.1;
+                if (opacity > 1) {
+                    opacity = 0.1;
+                }
+                box.style.opacity = opacity;
+            })
+        });
+    }
+
+    else {
+        progressiveDarkButton.textContent = "Progressive Dark Mode: OFF";
+        const gridBoxes = document.querySelectorAll(".sub-container > div");
+        gridBoxes.forEach((box) => {
+            box.addEventListener("mouseover", () => {
+                box.style.opacity = 1.0;
+            })
+        });
+    }
 });
 
 
