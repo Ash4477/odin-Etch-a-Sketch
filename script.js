@@ -19,6 +19,11 @@ function removeGrid() {
     container.innerHTML = "";
 }
 
+// generates between 0 and 255 (FOR RGB)
+function generateRandomNumber() {
+    return Math.floor(Math.random() * 256);
+}
+
 // Default Settings
 let gridSize = 16;
 createGrid(gridSize);
@@ -29,6 +34,7 @@ const colorButton = document.querySelector("#color");
 const resetButton = document.querySelector("#reset");
 const sizeButton = document.querySelector("#size");
 const showGridButton = document.querySelector("#grid-line-choice");
+const multiColorButton = document.querySelector("#multicolor");
 
 sizeButton.addEventListener("click", () => {
     while (true){
@@ -80,6 +86,16 @@ showGridButton.addEventListener("click", () => {
         });
     }
  
+});
+
+multiColorButton.addEventListener("click", () => {
+
+    const gridBoxes = document.querySelectorAll(".sub-container > div");
+    gridBoxes.forEach((box) => {
+        box.addEventListener("mouseover", () => {
+            box.style.backgroundColor = `rgb(${generateRandomNumber()},${generateRandomNumber()},${generateRandomNumber()})`;
+        })
+    });
 });
 
 
