@@ -41,7 +41,6 @@ sizeButton.addEventListener("click", () => {
 
 colorButton.addEventListener("click", () => {
     const color = (prompt("Enter a Color (e.g, orange, red, blue)")).trim();
-    console.log(color);
     const gridBoxes = document.querySelectorAll(".sub-container > div");
     gridBoxes.forEach((box) => {
         box.addEventListener("mouseover", () => {
@@ -51,7 +50,10 @@ colorButton.addEventListener("click", () => {
 });
 
 resetButton.addEventListener("click", () => {
-
+    const gridBoxes = document.querySelectorAll(".sub-container > div");
+    gridBoxes.forEach((box) => {
+            box.style.backgroundColor = "white";       
+    });
 });
 
 
