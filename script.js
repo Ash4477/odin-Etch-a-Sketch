@@ -39,6 +39,7 @@ sizeButton.addEventListener("click", () => {
         else {
             removeGrid();
             createGrid(gridSize);
+            showGridButton.textContent = "Show Grid";
             return;            
         }
     }
